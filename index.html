@@ -18,6 +18,20 @@
 
         </header>
         <main>
+            <div class="carousel">
+                <h3>Noticias</h3>
+                <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+                <div class="carousel-track-container">
+                  <ul class="carousel-track" id="carouselTrack">
+                    <li class="carousel-slide"><img src="media/image/ds1 map.jpg" alt="Imagen 1"></li>
+                    <li class="carousel-slide"><img src="media/image/ds2 map.jpg" alt="Imagen 2"></li>
+                    <li class="carousel-slide"><img src="media/image/ds3 map.jpg" alt="Imagen 3"></li>
+                  </ul>
+                </div>
+                <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+            </div>
+        </main>
+        <footer>
             <div class="form-container">
                 <form id="myForm" novalidate>
                     <h1>Registro</h1>
@@ -40,12 +54,9 @@
                         <span class="error-message" id="password-error"></span>
                     </div>
         
-                    <button type="submit">Enviar</button>
+                    <button class="form-button" type="submit">Enviar</button>
                 </form>
             </div>
-        </main>
-        <footer>
-
         </footer>
     </body>
     <script src="js/script.js"></script>
