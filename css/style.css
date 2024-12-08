@@ -1,13 +1,90 @@
+
+
+
+.menu-cont{
+  position:fixed;
+  background-color: #462255;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  padding: 16px 16px;
+
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.trozo-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#menuToggle, .menu-icon{
+  display: none;
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  transition: transform 0.25s;
+
+}
+
+.listalogos{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  padding: 16px;
+}
+
+.menu-cont .logo:hover img{
+  transform: scale(1.1);
+}
+
+.menu-cont .logo:hover h3{
+  transform: scale(1.1);
+}
+.menu-cont .logo{
+  width: 256px;
+  transition: .5s;
+}
+
+.menu-cont .volver{
+  background-color: rgb(160,160,160);
+  padding: 5px 8px;
+  border: none;
+  border-radius: 8x;
+  color: orange;
+  text-decoration: none;
+  transition: .5s;
+}
+.menu-cont .volver:hover{
+  color: rgb(160,160,160);
+  background-color: orange;
+}
+
+
+
+
+
+
+
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ddfff7;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #ddfff7;
+}
+
+.super-container{
+  display: flex;
+  justify-content: center;
+  padding: 256px 0 0 0;
 }
 
 .form-container {
@@ -17,6 +94,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    
 }
 
 h1 {
@@ -79,7 +157,12 @@ h3{
 
 
 
+.carousel-container{
+  display: flex;
+  justify-content: center;
+  padding: 256px 0 0 0;
 
+}
 
 .carousel {
     position: relative;
