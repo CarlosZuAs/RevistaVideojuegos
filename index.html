@@ -55,14 +55,15 @@
             </div>
         </header>
         <main>
-            <div class="carousel">
-                <button class="carousel-button left">&#9664;</button>
-                <div class="carousel-images">
-                    <img src="https://via.placeholder.com/600x400/FF5733" alt="Imagen 1">
-                    <img src="https://via.placeholder.com/600x400/33FF57" alt="Imagen 2">
-                    <img src="https://via.placeholder.com/600x400/3357FF" alt="Imagen 3">
+            <div class="carousel-container"  id="carousel1">
+                <h3>Sprites</h3>
+                <div class="carousel">
+                    <img src="media/image/ds1 map.jpg" class="carousel-image" alt="Imagen 1">
+                    <img src="media/image/ds2 map.jpg" class="carousel-image" alt="Imagen 1">
+                    <img src="media/image/ds3 map.jpg" class="carousel-image" alt="Imagen 1">
                 </div>
-                <button class="carousel-button right">&#9654;</button>
+                <button class="prev" onclick="prevSlide('carousel1')">❮</button>
+                <button class="next" onclick="nextSlide('carousel1')">❯</button>
             </div>
             
         </main>

@@ -47,24 +47,37 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     }
 });
 
-const imagesContainer = document.querySelector('.carousel-images');
-        const images = document.querySelectorAll('.carousel-images img');
-        const prevButton = document.querySelector('.carousel-button.left');
-        const nextButton = document.querySelector('.carousel-button.right');
 
-        let currentIndex = 0;
 
-        function updateCarousel() {
-            const offset = -currentIndex * 100;
-            imagesContainer.style.transform = `translateX(${offset}%)`;
-        }
+const carouselIndices = {};
 
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-            updateCarousel();
-        });
+function showSlide(carouselId, index) {
+    const carouselContainer = document.getElementById(carouselId);
+    const carousel = carouselContainer.querySelector('.carousel');
+    const images = carousel.querySelectorAll('.carousel-image');
 
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-            updateCarousel();
-        });
+    if (index >= images.length) {
+        carouselIndices[carouselId] = 0;
+    } else if (index < 0) {
+        carouselIndices[carouselId] = images.length - 1;
+    } else {
+        carouselIndices[carouselId] = index;
+    }
+
+    carousel.style.transform = `translateX(${-carouselIndices[carouselId] * 100}%)`;
+}
+
+function nextSlide(carouselId) {
+    const currentIndex = carouselIndices[carouselId] || 0;
+    showSlide(carouselId, currentIndex + 1);
+}
+
+function prevSlide(carouselId) {
+    const currentIndex = carouselIndices[carouselId] || 0;
+    showSlide(carouselId, currentIndex - 1);
+}
+
+document.querySelectorAll('.carousel-container').forEach(carousel => {
+    const carouselId = carousel.id;
+    carouselIndices[carouselId] = 0;
+});
