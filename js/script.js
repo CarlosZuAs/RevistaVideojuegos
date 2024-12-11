@@ -1,3 +1,37 @@
+
+const carouselIndices = {};
+
+function showSlide(carouselId, index) {
+    const carouselContainer = document.getElementById(carouselId);
+    const carousel = carouselContainer.querySelector('.carousel');
+    const images = carousel.querySelectorAll('.carousel-image');
+
+    if (index >= images.length) {
+        carouselIndices[carouselId] = 0;
+    } else if (index < 0) {
+        carouselIndices[carouselId] = images.length - 1;
+    } else {
+        carouselIndices[carouselId] = index;
+    }
+
+    carousel.style.transform = `translateX(${-carouselIndices[carouselId] * 100}%)`;
+}
+
+function nextSlide(carouselId) {
+    const currentIndex = carouselIndices[carouselId] || 0;
+    showSlide(carouselId, currentIndex + 1);
+}
+
+function prevSlide(carouselId) {
+    const currentIndex = carouselIndices[carouselId] || 0;
+    showSlide(carouselId, currentIndex - 1);
+}
+
+document.querySelectorAll('.carousel-container').forEach(carousel => {
+    const carouselId = carousel.id;
+    carouselIndices[carouselId] = 0;
+});
+
 document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -49,35 +83,5 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
 
 
 
-const carouselIndices = {};
 
-function showSlide(carouselId, index) {
-    const carouselContainer = document.getElementById(carouselId);
-    const carousel = carouselContainer.querySelector('.carousel');
-    const images = carousel.querySelectorAll('.carousel-image');
 
-    if (index >= images.length) {
-        carouselIndices[carouselId] = 0;
-    } else if (index < 0) {
-        carouselIndices[carouselId] = images.length - 1;
-    } else {
-        carouselIndices[carouselId] = index;
-    }
-
-    carousel.style.transform = `translateX(${-carouselIndices[carouselId] * 100}%)`;
-}
-
-function nextSlide(carouselId) {
-    const currentIndex = carouselIndices[carouselId] || 0;
-    showSlide(carouselId, currentIndex + 1);
-}
-
-function prevSlide(carouselId) {
-    const currentIndex = carouselIndices[carouselId] || 0;
-    showSlide(carouselId, currentIndex - 1);
-}
-
-document.querySelectorAll('.carousel-container').forEach(carousel => {
-    const carouselId = carousel.id;
-    carouselIndices[carouselId] = 0;
-});
