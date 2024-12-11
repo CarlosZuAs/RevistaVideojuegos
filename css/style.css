@@ -171,13 +171,13 @@ h3{
 .megacontainer{
   display: flex;
   justify-content: center;
-  padding: 160px 0px;
+  padding: 128px 0px;
 }
 
 .carousel-container {
   position: relative;
   width: 80%;
-  max-width: 640px;
+  max-width: 768px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -266,7 +266,7 @@ h3{
 
 .imagen-sec{
   flex: 1;
-  max-width: 384px;
+  max-width: 480px;
 }
 
 .imagen-sec img{
