@@ -47,54 +47,24 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     }
 });
 
+const imagesContainer = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const prevButton = document.querySelector('.carousel-button.left');
+        const nextButton = document.querySelector('.carousel-button.right');
 
+        let currentIndex = 0;
 
-/*let currentIndex = 0;
-const images = document.querySelectorAll('.carousel-image');
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            imagesContainer.style.transform = `translateX(${offset}%)`;
+        }
 
-function showSlide(index) {
-    const carousel = document.querySelector('.carousel');
-    if (index >= images.length) {
-        currentIndex = 0;
-    } else if (index < 0) {
-        currentIndex = images.length - 1;
-    } else {
-        currentIndex = index;
-    }
-    carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
-}
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateCarousel();
+        });
 
-function nextSlide() {
-    showSlide(currentIndex + 1);
-}
-
-function prevSlide() {
-    showSlide(currentIndex - 1);
-}*/
-const track = document.getElementById('carouselTrack');
-const slides = Array.from(track.children);
-const prevButton = document.getElementById('prevBtn');
-const nextButton = document.getElementById('nextBtn');
-
-let currentIndex = 0;
-
-const updateSlidePosition = () => {
-  const slideWidth = slides[0].getBoundingClientRect().width;
-  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-};
-
-const moveToNextSlide = () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlidePosition();
-};
-
-const moveToPrevSlide = () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlidePosition();
-};
-
-nextButton.addEventListener('click', moveToNextSlide);
-prevButton.addEventListener('click', moveToPrevSlide);
-
-// Ajustar el ancho cuando cambia el tamaño de la ventana
-window.addEventListener('resize', updateSlidePosition);
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
