@@ -74,6 +74,10 @@
   background-color: orange;
 }
 
+.menu-cont h3{
+  color: white;
+}
+
 
 
 
@@ -82,8 +86,7 @@
 
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ddfff7;
+  background-color: #93E1D8;
 
   
 }
@@ -286,12 +289,19 @@ p{
 padding: 32px 0px;
 text-align: justify;
 width: 100%;
+font-family: "Montserrat", sans-serif;
 
+}
+
+h3{
+  font-family: "Chau Philomene One", serif;
 }
 
 .noticia-vip p{
   padding: 32px 128px;
 }
+
+
 
 
 
